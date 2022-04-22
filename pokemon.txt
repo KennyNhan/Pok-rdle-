@@ -1,4 +1,4 @@
-Name: generation, type1, type2, evolution
+Name: Generation, type1, type2, evolution
 Bulbasaur: 1, Grass, Poison, 1 
 Venasaur: 1, Grass, Poison, 2
 Ivysaur: 1, Grass, Poison, 3
