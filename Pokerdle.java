@@ -75,6 +75,7 @@ public class Pokerdle {
 
             if(Arrays.equals(isItCorrect, correctComp)){
                 System.out.println("You guessed the right pokemon!");
+                break;
             }
             for(String value : isItCorrect){
                 System.out.println(value);
