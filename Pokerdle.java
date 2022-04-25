@@ -23,13 +23,18 @@ public class Pokerdle {
              pokemonMap.put(split[0], split[1]);
         }
         Random r = new Random();
-        int upperBound = pokemon.size();
+        int upperBound = pokemon.size() - 1;
         String randomPokemon = pokemon.get(r.nextInt(upperBound));
         String[] correctValues = pokemonMap.get(randomPokemon).split(",");
         
         Scanner sc = new Scanner(System.in);  // Create a Scanner object
+        
+        int count = 0;
+        String[] correctComp = {"equal", "true", "true", "equal"};
+
         System.out.println(pokemonMap);
-        int count = 1;
+        System.out.println(randomPokemon);
+
         while(count < 5){
             System.out.println("Guess a Pokemon");
 
@@ -39,25 +44,27 @@ public class Pokerdle {
 
             String[] isItCorrect = new String [guessValues.length]; 
 
-            for( int i = 0; i < correctValues.length - 1; i ++){
+            for( int i = 0; i < correctValues.length; i ++){
                 if ( i == 0 || i == 3){
                     String tempGuess = guessValues[i];
                     System.out.println(tempGuess);
                     String tempCorrect = correctValues[i];
                     int intValue = Integer.valueOf(tempGuess);
                     int correctInt = Integer.valueOf(tempCorrect);
-                    if (intValue < correctInt){
-                        isItCorrect[i] = "less";
+                    System.out.println(intValue);
+                    System.out.println(correctInt);
+                    if (intValue == correctInt){
+                        isItCorrect[i] = "equal";
                     }
-                    else if ( intValue > correctInt){
+                    else if ( intValue < correctInt){
                         isItCorrect[i] = "more";
                     }
                     else{
-                        isItCorrect[i] = "equal";
+                        isItCorrect[i] = "less";
                     }
                 }
                 else{
-                    if( correctValues[i] == guessValues[i]){
+                    if( Arrays.asList(correctValues).contains(guessValues[i])){
                         isItCorrect[i] = "true";
                     }
                     else{
@@ -65,9 +72,13 @@ public class Pokerdle {
                     }
                 }
             }
-            System.out.println("correct: " + correctValues);
-            System.out.println("guess: " + guessValues);
-            System.out.println(isItCorrect);
+
+            if(Arrays.equals(isItCorrect, correctComp)){
+                System.out.println("You guessed the right pokemon!");
+            }
+            for(String value : isItCorrect){
+                System.out.println(value);
+            }
             count++; 
         }
         System.out.println("out of guesses");
