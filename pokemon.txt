@@ -71,3 +71,6 @@ Cinderace: 8, Fire, None, 3
 Sobble: 8, Water, None, 1 
 Drizzile: 8, Water, None, 2 
 Inteleon: 8, Water, None, 3
+Pichu: 2, Electric, None, 1
+Pikachu: 1, Electric, None, 2
+Raichu: 1, Electric, Psychic, 3
