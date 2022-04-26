@@ -17,7 +17,8 @@ public class Pokerdle {
         String line = null;
         line = bufferedReader.readLine(); // neglect first line
         while((line = bufferedReader.readLine())!= null){
-             String formatLine = line.replaceAll(" ", "");
+             String lowerLine = line.toLowerCase();
+             String formatLine = lowerLine.replaceAll(" ", "");
              String[] split = formatLine.split(":");
              pokemon.add(split[0]);
              pokemonMap.put(split[0], split[1]);
@@ -39,8 +40,13 @@ public class Pokerdle {
             System.out.println("Guess a Pokemon");
 
             String guess = sc.nextLine();  // Read user input
-            //guess.toLowerCase();
-            String[] guessValues = pokemonMap.get(guess).split(",");
+            
+            while(pokemonMap.get(guess.toLowerCase()) == null){
+                System.out.println("Not a valid guess. Please guess another Pokemon");
+                guess = sc.nextLine();
+            }
+            
+            String[] guessValues = pokemonMap.get(guess.toLowerCase()).split(",");
 
             String[] isItCorrect = new String [guessValues.length]; 
 
