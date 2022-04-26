@@ -53,12 +53,9 @@ public class Pokerdle {
             for( int i = 0; i < correctValues.length; i ++){
                 if ( i == 0 || i == 3){
                     String tempGuess = guessValues[i];
-                    System.out.println(tempGuess);
                     String tempCorrect = correctValues[i];
                     int intValue = Integer.valueOf(tempGuess);
                     int correctInt = Integer.valueOf(tempCorrect);
-                    System.out.println(intValue);
-                    System.out.println(correctInt);
                     if (intValue == correctInt){
                         isItCorrect[i] = "equal";
                     }
