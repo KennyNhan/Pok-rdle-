@@ -20,7 +20,7 @@ public class Pokerdle {
 
     public static void main(String[] args) throws IOException {
         Pokerdle pokerdle = new Pokerdle();
-        pokerdle.new Frame();
+        // JFrame frame = new Frame();
         
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("pokemon.txt")));
@@ -39,6 +39,9 @@ public class Pokerdle {
         int upperBound = pokemon.size() - 1;
         String randomPokemon = pokemon.get(r.nextInt(upperBound));
         String[] correctValues = pokemonMap.get(randomPokemon).split(",");
+
+        // ImageIcon pokeImage = new ImageIcon("PokePics/"+randomPokemon+".webp");
+        // frame.setIconImage(pokeImage);
         
         Scanner sc = new Scanner(System.in);  // Create a Scanner object
         
@@ -101,7 +104,7 @@ public class Pokerdle {
     }
 
 
-    public class Frame {
+    public class Frame extends JFrame{
         JFrame frame;
 
         Frame() {
