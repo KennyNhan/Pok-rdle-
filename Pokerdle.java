@@ -19,8 +19,10 @@ import javax.swing.*;
 public class Pokerdle {
 
     public static void main(String[] args) throws IOException {
+        JTextField userInput = new JTextField("Enter input here", 1);
+        JTextPane inputDisplay = new JTextPane();
         Pokerdle pokerdle = new Pokerdle();
-        // JFrame frame = new Frame();
+        pokerdle.new Frame(userInput, inputDisplay);
         
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("pokemon.txt")));
@@ -107,7 +109,7 @@ public class Pokerdle {
     public class Frame extends JFrame{
         JFrame frame;
 
-        Frame() {
+        Frame(JTextField input, JTextPane display) {
             JFrame frame = new JFrame("Pok-rdle");
             // Canvas canvas = new Canvas();
             
@@ -116,6 +118,12 @@ public class Pokerdle {
             Icon pokemon = new ImageIcon("POKEMON");
             // frame.setIconImage(pokemon);
             frame.setBounds(((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-300, 0, 600, 800);
+
+            input.setSize(100, 30);
+            input.setLocation(300, 300);
+            frame.add(input);
+            frame.add(display);
+
             frame.setContentPane(new MainPanel());
 
             frame.setVisible(true);
