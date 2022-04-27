@@ -5,12 +5,24 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics.*;
+import java.awt.Toolkit;
+
+import javax.swing.*;
+
 /**
  * Pokerdle
  */
 public class Pokerdle {
 
     public static void main(String[] args) throws IOException {
+        Pokerdle pokerdle = new Pokerdle();
+        pokerdle.new Frame();
+        
+
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("pokemon.txt")));
         Map<String, String> pokemonMap = new HashMap<>(); // Map to put data
         ArrayList<String> pokemon = new ArrayList<>();
@@ -88,5 +100,41 @@ public class Pokerdle {
         System.out.println("out of guesses");
     }
 
+
+    public class Frame {
+        JFrame frame;
+
+        Frame() {
+            JFrame frame = new JFrame("Pok-rdle");
+            // Canvas canvas = new Canvas();
+            
+            // frame.add(canvas);
+            // frame.setBackground(Color.LIGHT_GRAY);
+            Icon pokemon = new ImageIcon("POKEMON");
+            // frame.setIconImage(pokemon);
+            frame.setBounds(((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-300, 0, 600, 800);
+            frame.setContentPane(new MainPanel());
+
+            frame.setVisible(true);
+        }
+    }
+
+    class MainPanel extends JPanel
+    {
+      MainPanel()
+      {
+        setOpaque(true);
+        setBackground(Color.LIGHT_GRAY);
+      }
+    
+      @Override
+      protected void paintComponent(Graphics g)
+      {
+        super.paintComponent(g);
+        g.setFont(g.getFont().deriveFont(20.0F)); //unneccessary?
+        g.setColor(Color.GRAY);
+        g.drawString("Sample text", 50, 50);
+      }
+    }
 
 }
