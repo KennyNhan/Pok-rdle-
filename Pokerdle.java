@@ -19,13 +19,6 @@ import javax.swing.*;
 public class Pokerdle {
 
     public static void main(String[] args) throws IOException {
-        // JFrame frame = new JFrame("Pok-rdle");
-        // Canvas canvas = new Canvas();
-        
-        // frame.add(canvas);
-        // frame.setBackground(Color.LIGHT_GRAY);
-        // frame.setBounds(((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-300, 0, 600, 800);
-        // frame.setVisible(true);
         Pokerdle pokerdle = new Pokerdle();
         pokerdle.new Frame();
         
@@ -116,7 +109,7 @@ public class Pokerdle {
             // Canvas canvas = new Canvas();
             
             // frame.add(canvas);
-            frame.setBackground(Color.LIGHT_GRAY);
+            // frame.setBackground(Color.LIGHT_GRAY);
             Icon pokemon = new ImageIcon("POKEMON");
             // frame.setIconImage(pokemon);
             frame.setBounds(((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-300, 0, 600, 800);
@@ -131,7 +124,7 @@ public class Pokerdle {
       MainPanel()
       {
         setOpaque(true);
-        setBackground(Color.blue);
+        setBackground(Color.LIGHT_GRAY);
       }
     
       @Override
@@ -139,7 +132,7 @@ public class Pokerdle {
       {
         super.paintComponent(g);
         g.setFont(g.getFont().deriveFont(20.0F)); //unneccessary?
-        g.setColor(Color.green);
+        g.setColor(Color.GRAY);
         g.drawString("Sample text", 50, 50);
       }
     }
