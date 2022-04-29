@@ -15,11 +15,20 @@ import java.awt.Toolkit;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  * Pokerdle
  */
 public class Pokerdle {
+    Graphics g1;
+
+    Graphics g2;
+
+    Graphics g3;
+
+    Graphics g4;
 
     public static void main(String[] args) throws IOException {
         JTextField userInput = new JTextField("Enter input here", 1);
@@ -57,7 +66,7 @@ public class Pokerdle {
         
         int count = 0;
         String[] correctComp = {"equal", "true", "true", "equal"};
-
+        int y = 150;
         System.out.println(pokemonMap);
         System.out.println(randomPokemon);
 
@@ -82,7 +91,8 @@ public class Pokerdle {
                     int intValue = Integer.valueOf(tempGuess);
                     int correctInt = Integer.valueOf(tempCorrect);
                     if (intValue == correctInt){
-                        isItCorrect[i] = "equal";
+                        isItCorrect[i] = "equal";   
+
                     }
                     else if ( intValue < correctInt){
                         isItCorrect[i] = "more";
@@ -100,19 +110,40 @@ public class Pokerdle {
                     }
                 }
             }
+            int x = 150;
+            for(String value : isItCorrect){
+                
+                if(value == "equal"){
+                    Color colorBall = Color.GREEN;
 
+                }
+                if(value == "more"){
+                    Color colorBall = Color.BLUE;
+                }
+                if(value == "less"){
+                    Color colorBall = Color.BLUE;
+                }
+                if(value == "true"){
+                    Color colorBall = Color.GREEN;
+                }
+                if(value == "false"){
+                    Color colorBall = Color.RED;
+                }
+                x += 100;
+                System.out.println(value);
+
+            }
+            y += 100;
             if(Arrays.equals(isItCorrect, correctComp)){
                 System.out.println("You guessed the right pokemon!");
                 break;
             }
-            for(String value : isItCorrect){
-                System.out.println(value);
-            }
+
             count++; 
         }
         System.out.println("out of guesses");
     }
-
+ 
 
     public class Frame extends JFrame{
         JFrame frame;
@@ -151,8 +182,26 @@ public class Pokerdle {
       {
         super.paintComponent(g);
         g.setFont(g.getFont().deriveFont(20.0F)); //unneccessary?
-        g.setColor(Color.GRAY);
+        g.setColor(Color.BLUE);
         g.drawString("Sample text", 50, 50);
+
+        
+        g1 = (Graphics) g;
+        g1.drawOval(150, 400, 50, 50);
+        g1.fillOval(150, 400, 50, 50);
+        g1.setColor(Color.GREEN);
+        g2 = (Graphics) g;
+        g2.drawOval(250, 400, 50, 50);
+        g2.fillOval(250, 400, 50, 50);
+        g2.setColor(Color.RED);
+        g3 = (Graphics) g;
+        g3.drawOval(350, 400, 50, 50);
+        g3.fillOval(350, 400, 50, 50);
+        g3.setColor(Color.BLUE);
+        g4 = (Graphics) g;
+        g4.drawOval(450, 400, 50, 50);
+        g4.fillOval(450, 400, 50, 50);
+        g4.setColor(Color.GREEN);
       }
     }
 
