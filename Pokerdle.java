@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -11,6 +13,7 @@ import java.awt.Graphics;
 import java.awt.Graphics.*;
 import java.awt.Toolkit;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -22,7 +25,7 @@ public class Pokerdle {
         JTextField userInput = new JTextField("Enter input here", 1);
         JTextPane inputDisplay = new JTextPane();
         Pokerdle pokerdle = new Pokerdle();
-        pokerdle.new Frame(userInput, inputDisplay);
+        Frame frame = pokerdle.new Frame(userInput, inputDisplay);
         
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("pokemon.txt")));
@@ -42,8 +45,13 @@ public class Pokerdle {
         String randomPokemon = pokemon.get(r.nextInt(upperBound));
         String[] correctValues = pokemonMap.get(randomPokemon).split(",");
 
-        // ImageIcon pokeImage = new ImageIcon("PokePics/"+randomPokemon+".webp");
-        // frame.setIconImage(pokeImage);
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("PokePics/"+randomPokemon+".webp"));
+        } catch (IOException e) {
+            System.out.println("Read in image error...");
+        }
+        frame.setIconImage(img);
         
         Scanner sc = new Scanner(System.in);  // Create a Scanner object
         
