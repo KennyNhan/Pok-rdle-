@@ -89,15 +89,16 @@ public class Pokerdle {
         System.out.println(pokemonMap);
         System.out.println(randomPokemon);
 
+        String guess = null;
+
         while(count < 5){
             System.out.println("Guess a Pokemon");
             feedback = "Guess a Pokemon";
             feedbackLabel.setText(feedback);
 
-            String guess = ")";
             if (count == 0) {
                 while(label2.getText().equals("__")) {
-                    System.out.println("waiting.");
+                    System.out.println(randomPokemon);
                 }
                 guess = label2.getText();
                 System.out.println(guess);
