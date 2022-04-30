@@ -30,6 +30,14 @@ public class Pokerdle {
     static String feedback = "Welcome to pok-rdle";
     static JLabel feedbackLabel = new JLabel(feedback);
 
+    static String guessLabelText = "__";
+    static JLabel label1 = new JLabel(guessLabelText , JLabel.CENTER);
+    static JLabel label2 = new JLabel(guessLabelText , JLabel.CENTER);
+    static JLabel label3 = new JLabel(guessLabelText , JLabel.CENTER);
+    static JLabel label4 = new JLabel(guessLabelText , JLabel.CENTER);
+    static JLabel label5 = new JLabel(guessLabelText , JLabel.CENTER);
+    static JLabel label6 = new JLabel(guessLabelText , JLabel.CENTER);
+
     Graphics g1;
 
     Graphics g2;
@@ -84,8 +92,43 @@ public class Pokerdle {
             feedback = "Guess a Pokemon";
             feedbackLabel.setText(feedback);
 
-            String guess = sc.nextLine();  // Read user input
-            //get user input here
+            String guess = ")";
+            if (count == 0) {
+                while(label2.getText().equals("__")) {
+                    System.out.println("waiting.");
+                }
+                guess = label2.getText();
+                System.out.println(guess);
+            }
+            if (count == 1) {
+                while(label3.getText().equals("__")) {
+                    System.out.println("waiting.");
+                }
+                guess = label3.getText();
+                System.out.println(guess);
+            }
+            if (count == 2) {
+                while(label4.getText().equals("__")) {
+                    System.out.println("waiting.");
+                }
+                guess = label4.getText();
+                System.out.println(guess);
+            }
+            if (count == 3) {
+                while(label5.getText().equals("__")) {
+                    System.out.println("waiting.");
+                }
+                guess = label5.getText();
+                System.out.println(guess);
+            }
+            if (count == 4) {
+                while(label6.getText().equals("__")) {
+                    System.out.println("waiting.");
+                }
+                guess = label6.getText();
+                System.out.println(guess);
+            }
+            
             
             while(pokemonMap.get(guess.toLowerCase()) == null){
                 System.out.println("Not a valid guess. Please guess another Pokemon");
@@ -175,39 +218,39 @@ public class Pokerdle {
         feedbackLabel.setSize(300, 30);
         feedbackLabel.setLocation(200, 10);
 
-        JLabel guess1 = new JLabel("Guess 1:");
+        JLabel guess1 = new JLabel("Current guess");
         guess1.setSize(100, 30);
         guess1.setLocation(0, 250);
-        JLabel guess2 = new JLabel("Guess 2:");
+        JLabel guess2 = new JLabel("Guess 1:");
         guess2.setSize(100, 30);
         guess2.setLocation(0, 300);
-        JLabel guess3 = new JLabel("Guess 3:");
+        JLabel guess3 = new JLabel("Guess 2:");
         guess3.setSize(100, 30);
         guess3.setLocation(0, 350);
-        JLabel guess4 = new JLabel("Guess 4:");
+        JLabel guess4 = new JLabel("Guess 3:");
         guess4.setSize(100, 30);
         guess4.setLocation(0, 400);
-        JLabel guess5 = new JLabel("Guess 5:");
+        JLabel guess5 = new JLabel("Guess 4:");
         guess5.setSize(100, 30);
         guess5.setLocation(0, 450);
+        JLabel guess6 = new JLabel("Guess 5:");
+        guess6.setSize(100, 30);
+        guess6.setLocation(0, 500);
 
 
-        String guessLabelText = "Your guess will be here";
-        JLabel label1 = new JLabel(guessLabelText , JLabel.CENTER);
+
         label1.setSize(300, 30);
         label1.setLocation(120, 250);
-        JLabel label2 = new JLabel(guessLabelText, JLabel.CENTER);
         label2.setSize(300, 30);
         label2.setLocation(120, 300);
-        JLabel label3 = new JLabel(guessLabelText, JLabel.CENTER);
         label3.setSize(300, 30);
         label3.setLocation(120, 350);
-        JLabel label4 = new JLabel(guessLabelText, JLabel.CENTER);
         label4.setSize(300, 30);
         label4.setLocation(120, 400);
-        JLabel label5 = new JLabel(guessLabelText, JLabel.CENTER);
         label5.setSize(300, 30);
         label5.setLocation(120, 450);
+        label6.setSize(300, 30);
+        label6.setLocation(120, 500);
 
 
 
@@ -217,7 +260,7 @@ public class Pokerdle {
         textField.setColumns(50);
         textField.setSize(300, 40);
         textField.setVisible(true);
-        textField.setLocation(100, 500);
+        textField.setLocation(100, 600);
     
     
     
@@ -237,6 +280,8 @@ public class Pokerdle {
                     label4.setText(text);
                 } else if (label5.getText().equals(guessLabelText)) {
                     label5.setText(text);
+                } else if (label6.getText().equals(guessLabelText)) {
+                    label6.setText(text);
                 } else {
                     //out of guesses
                     feedbackLabel.setText("OUT OF GUESSES");
@@ -255,11 +300,13 @@ public class Pokerdle {
         contentPane.add(guess3);
         contentPane.add(guess4);
         contentPane.add(guess5);
+        contentPane.add(guess6);
         contentPane.add(label1);
         contentPane.add(label2);
         contentPane.add(label3);
         contentPane.add(label4);
         contentPane.add(label5);
+        contentPane.add(label6);
         contentPane.add(textField);
 
         frame.setContentPane(contentPane);
