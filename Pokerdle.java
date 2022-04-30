@@ -18,10 +18,18 @@ import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * Pokerdle
  */
 public class Pokerdle {
+    JFrame frame;
+
+    static String feedback = "Welcome to pok-rdle";
+    static JLabel feedbackLabel = new JLabel(feedback);
+
     Graphics g1;
 
     Graphics g2;
@@ -31,10 +39,9 @@ public class Pokerdle {
     Graphics g4;
 
     public static void main(String[] args) throws IOException {
-        JTextField userInput = new JTextField("Enter input here", 1);
-        JTextPane inputDisplay = new JTextPane();
         Pokerdle pokerdle = new Pokerdle();
-        Frame frame = pokerdle.new Frame(userInput, inputDisplay);
+        pokerdle.displayGUI();
+        // Frame frame = pokerdle.new Frame(userInput, inputDisplay);
         
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("pokemon.txt")));
@@ -59,8 +66,10 @@ public class Pokerdle {
             img = ImageIO.read(new File("PokePics/"+randomPokemon+".webp"));
         } catch (IOException e) {
             System.out.println("Read in image error...");
+            feedback = "Read in image error...";
+            feedbackLabel.setText(feedback);
         }
-        frame.setIconImage(img);
+        //.setIconImage(img);
         
         Scanner sc = new Scanner(System.in);  // Create a Scanner object
         
@@ -72,11 +81,16 @@ public class Pokerdle {
 
         while(count < 5){
             System.out.println("Guess a Pokemon");
+            feedback = "Guess a Pokemon";
+            feedbackLabel.setText(feedback);
 
             String guess = sc.nextLine();  // Read user input
+            //get user input here
             
             while(pokemonMap.get(guess.toLowerCase()) == null){
                 System.out.println("Not a valid guess. Please guess another Pokemon");
+                feedback = "Not a valid guess. Please guess another Pokemon";
+                feedbackLabel.setText(feedback);
                 guess = sc.nextLine();
             }
             
@@ -136,73 +150,189 @@ public class Pokerdle {
             y += 100;
             if(Arrays.equals(isItCorrect, correctComp)){
                 System.out.println("You guessed the right pokemon!");
+                feedback = "You guessed the right pokemon!";
+                feedbackLabel.setText(feedback);
                 break;
             }
 
             count++; 
         }
         System.out.println("out of guesses");
+        feedback = "out of guesses";
+        feedbackLabel.setText(feedback);
     }
  
 
-    public class Frame extends JFrame{
-        JFrame frame;
+    private void displayGUI() {
+        frame = new JFrame("Pok-rdle");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Frame(JTextField input, JTextPane display) {
-            JFrame frame = new JFrame("Pok-rdle");
-            // Canvas canvas = new Canvas();
-            
-            // frame.add(canvas);
-            // frame.setBackground(Color.LIGHT_GRAY);
-            Icon pokemon = new ImageIcon("POKEMON");
-            // frame.setIconImage(pokemon);
-            frame.setBounds(((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-300, 0, 600, 800);
+        JPanel contentPane = new JPanel();
+        contentPane.setOpaque(true);
+        contentPane.setBackground(Color.LIGHT_GRAY);
+        contentPane.setLayout(null);
 
-            input.setSize(100, 30);
-            input.setLocation(300, 300);
-            frame.add(input);
-            frame.add(display);
+        feedbackLabel.setSize(300, 30);
+        feedbackLabel.setLocation(200, 10);
 
-            frame.setContentPane(new MainPanel());
+        JLabel guess1 = new JLabel("Guess 1:");
+        guess1.setSize(100, 30);
+        guess1.setLocation(0, 250);
+        JLabel guess2 = new JLabel("Guess 2:");
+        guess2.setSize(100, 30);
+        guess2.setLocation(0, 300);
+        JLabel guess3 = new JLabel("Guess 3:");
+        guess3.setSize(100, 30);
+        guess3.setLocation(0, 350);
+        JLabel guess4 = new JLabel("Guess 4:");
+        guess4.setSize(100, 30);
+        guess4.setLocation(0, 400);
+        JLabel guess5 = new JLabel("Guess 5:");
+        guess5.setSize(100, 30);
+        guess5.setLocation(0, 450);
 
-            frame.setVisible(true);
-        }
-    }
 
-    class MainPanel extends JPanel
-    {
-      MainPanel()
-      {
-        setOpaque(true);
-        setBackground(Color.LIGHT_GRAY);
-      }
+        String guessLabelText = "Your guess will be here";
+        JLabel label1 = new JLabel(guessLabelText , JLabel.CENTER);
+        label1.setSize(300, 30);
+        label1.setLocation(120, 250);
+        JLabel label2 = new JLabel(guessLabelText, JLabel.CENTER);
+        label2.setSize(300, 30);
+        label2.setLocation(120, 300);
+        JLabel label3 = new JLabel(guessLabelText, JLabel.CENTER);
+        label3.setSize(300, 30);
+        label3.setLocation(120, 350);
+        JLabel label4 = new JLabel(guessLabelText, JLabel.CENTER);
+        label4.setSize(300, 30);
+        label4.setLocation(120, 400);
+        JLabel label5 = new JLabel(guessLabelText, JLabel.CENTER);
+        label5.setSize(300, 30);
+        label5.setLocation(120, 450);
+
+
+
+
+
+        JTextField textField = new JTextField("Guess here, then press enter.");
+        textField.setColumns(50);
+        textField.setSize(300, 40);
+        textField.setVisible(true);
+        textField.setLocation(100, 500);
     
-      @Override
-      protected void paintComponent(Graphics g)
-      {
-        super.paintComponent(g);
-        g.setFont(g.getFont().deriveFont(20.0F)); //unneccessary?
-        g.setColor(Color.BLUE);
-        g.drawString("Sample text", 50, 50);
+    
+    
+        ActionListener al = new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+    
+                String text = textField.getText();
+                label1.setText(text);
+                
+                if (label1.getText().equals(guessLabelText)) {
+                    label1.setText(text);
+                } else if (label2.getText().equals(guessLabelText)) {
+                    label2.setText(text);
+                } else if (label3.getText().equals(guessLabelText)) {
+                    label3.setText(text);
+                } else if (label4.getText().equals(guessLabelText)) {
+                    label4.setText(text);
+                } else if (label5.getText().equals(guessLabelText)) {
+                    label5.setText(text);
+                } else {
+                    //out of guesses
+                    feedbackLabel.setText("OUT OF GUESSES");
+                }
+                
+                
 
-        
-        g1 = (Graphics) g;
-        g1.drawOval(150, 400, 50, 50);
-        g1.fillOval(150, 400, 50, 50);
-        g1.setColor(Color.GREEN);
-        g2 = (Graphics) g;
-        g2.drawOval(250, 400, 50, 50);
-        g2.fillOval(250, 400, 50, 50);
-        g2.setColor(Color.RED);
-        g3 = (Graphics) g;
-        g3.drawOval(350, 400, 50, 50);
-        g3.fillOval(350, 400, 50, 50);
-        g3.setColor(Color.BLUE);
-        g4 = (Graphics) g;
-        g4.drawOval(450, 400, 50, 50);
-        g4.fillOval(450, 400, 50, 50);
-        g4.setColor(Color.GREEN);
-      }
+            }
+        };
+        textField.addActionListener(al);
+
+
+        contentPane.add(feedbackLabel);
+        contentPane.add(guess1);
+        contentPane.add(guess2);
+        contentPane.add(guess3);
+        contentPane.add(guess4);
+        contentPane.add(guess5);
+        contentPane.add(label1);
+        contentPane.add(label2);
+        contentPane.add(label3);
+        contentPane.add(label4);
+        contentPane.add(label5);
+        contentPane.add(textField);
+
+        frame.setContentPane(contentPane);
+        frame.setSize(600, 800);
+        frame.setLocationByPlatform(true);
+        frame.setVisible(true);
+        frame.requestFocus();
+        frame.addWindowListener(null);
     }
+
+    // public class Frame extends JFrame{
+    //     JFrame frame;
+
+    //     Frame(JTextField input, JTextPane display) {
+    //         JFrame frame = new JFrame("Pok-rdle");
+    //         // Canvas canvas = new Canvas();
+            
+    //         // frame.add(canvas);
+    //         // frame.setBackground(Color.LIGHT_GRAY);
+    //         Icon pokemon = new ImageIcon("POKEMON");
+    //         // frame.setIconImage(pokemon);
+    //         frame.setBounds(((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-300, 0, 600, 800);
+
+            
+    //         input.setSize(100, 30);
+    //         input.setLocation(300, 300);
+    //         display.setSize(100, 50);
+    //         display.setLocation(300, 400);
+    //         frame.add(input);
+    //         frame.add(display);
+    //         frame.setContentPane(new MainPanel());
+
+    //         frame.setVisible(true);
+    //     }
+    // }
+
+    // class MainPanel extends JPanel {
+
+
+    //     MainPanel() {
+    //     setOpaque(true);
+    //     setBackground(Color.LIGHT_GRAY);
+    //   }
+    
+    //     @Override
+    //     protected void paintComponent(Graphics g) {
+    //         super.paintComponent(g);
+    //         g.setFont(g.getFont().deriveFont(20.0F));
+    //         g.setColor(Color.BLUE);
+    //         g.drawString("Pok-rlde", 265, 50);
+
+    //         g.setColor(Color.GRAY);
+    //         g.drawString(message, 170, 100);
+
+
+            
+    //         g1 = (Graphics) g;
+    //         g1.drawOval(150, 400, 50, 50);
+    //         g1.fillOval(150, 400, 50, 50);
+    //         g1.setColor(Color.GREEN);
+    //         g2 = (Graphics) g;
+    //         g2.drawOval(250, 400, 50, 50);
+    //         g2.fillOval(250, 400, 50, 50);
+    //         g2.setColor(Color.RED);
+    //         g3 = (Graphics) g;
+    //         g3.drawOval(350, 400, 50, 50);
+    //         g3.fillOval(350, 400, 50, 50);
+    //         g3.setColor(Color.BLUE);
+    //         g4 = (Graphics) g;
+    //         g4.drawOval(450, 400, 50, 50);
+    //         g4.fillOval(450, 400, 50, 50);
+    //         g4.setColor(Color.GREEN);
+    //   }
+    // }
 
 }
