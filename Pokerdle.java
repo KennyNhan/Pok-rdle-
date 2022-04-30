@@ -27,6 +27,8 @@ import java.awt.event.ActionListener;
 public class Pokerdle {
     JFrame frame;
 
+    static Boolean won = false;
+
     static String feedback = "Welcome to pok-rdle";
     static JLabel feedbackLabel = new JLabel(feedback);
 
@@ -195,14 +197,17 @@ public class Pokerdle {
                 System.out.println("You guessed the right pokemon!");
                 feedback = "You guessed the right pokemon!";
                 feedbackLabel.setText(feedback);
+                won = true;
                 break;
             }
 
             count++; 
         }
-        System.out.println("out of guesses");
-        feedback = "out of guesses";
-        feedbackLabel.setText(feedback);
+        if (!won) {
+            System.out.println("out of guesses");
+            feedback = "out of guesses";
+            feedbackLabel.setText(feedback);
+        } 
     }
  
 
