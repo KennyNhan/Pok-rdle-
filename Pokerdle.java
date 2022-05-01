@@ -33,6 +33,7 @@ public class Pokerdle {
     static String feedback = "Welcome to pok-rdle";
     static JLabel feedbackLabel = new JLabel(feedback);
     static ImageIcon img;
+    static JLabel pic = new JLabel(img, JLabel.CENTER);
     static String randomPokemon;
 
     static String guessLabelText = "__";
@@ -74,7 +75,18 @@ public class Pokerdle {
         Random r = new Random();
         int upperBound = pokemon.size() - 1;
         randomPokemon = pokemon.get(r.nextInt(upperBound));
+        System.out.println(randomPokemon);
         String[] correctValues = pokemonMap.get(randomPokemon).split(",");
+        // randomPokemon = "chespin";
+        
+        // meow();
+        getPokePic();
+        pic.setIcon(img);
+        // System.out.println(randomPokemon);
+        // System.out.println(img.getIconWidth());
+
+        // img = new ImageIcon(new ImageIcon("PokePics/blastoise.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        // pic.setIcon(img);
 
         // try {
         //     img = new ImageIcon(ImageIO.read(new File("blastoise.png")));
@@ -100,41 +112,41 @@ public class Pokerdle {
             feedbackLabel.setText(feedback);
 
             String guess = ")";
-            if (count == 0) {
-                while(label2.getText().equals("__")) {
-                    System.out.println("waiting.");
-                }
-                guess = label2.getText();
-                System.out.println(guess);
-            }
-            if (count == 1) {
-                while(label3.getText().equals("__")) {
-                    System.out.println("waiting.");
-                }
-                guess = label3.getText();
-                System.out.println(guess);
-            }
-            if (count == 2) {
-                while(label4.getText().equals("__")) {
-                    System.out.println("waiting.");
-                }
-                guess = label4.getText();
-                System.out.println(guess);
-            }
-            if (count == 3) {
-                while(label5.getText().equals("__")) {
-                    System.out.println("waiting.");
-                }
-                guess = label5.getText();
-                System.out.println(guess);
-            }
-            if (count == 4) {
-                while(label6.getText().equals("__")) {
-                    System.out.println("waiting.");
-                }
-                guess = label6.getText();
-                System.out.println(guess);
-            }
+            // if (count == 0) {
+            //     while(label2.getText().equals("__")) {
+            //         System.out.println("waiting.");
+            //     }
+            //     guess = label2.getText();
+            //     System.out.println(guess);
+            // }
+            // if (count == 1) {
+            //     while(label3.getText().equals("__")) {
+            //         System.out.println("waiting.");
+            //     }
+            //     guess = label3.getText();
+            //     System.out.println(guess);
+            // }
+            // if (count == 2) {
+            //     while(label4.getText().equals("__")) {
+            //         System.out.println("waiting.");
+            //     }
+            //     guess = label4.getText();
+            //     System.out.println(guess);
+            // }
+            // if (count == 3) {
+            //     while(label5.getText().equals("__")) {
+            //         System.out.println("waiting.");
+            //     }
+            //     guess = label5.getText();
+            //     System.out.println(guess);
+            // }
+            // if (count == 4) {
+            //     while(label6.getText().equals("__")) {
+            //         System.out.println("waiting.");
+            //     }
+            //     guess = label6.getText();
+            //     System.out.println(guess);
+            // }
             
             
             while(pokemonMap.get(guess.toLowerCase()) == null){
@@ -248,14 +260,6 @@ public class Pokerdle {
         guess6.setSize(100, 30);
         guess6.setLocation(0, 500);
 
-        
-        JLabel pic = new JLabel(img, JLabel.CENTER);
-        // img = new ImageIcon(ImageIO.read(new File("PokePics/blastoise.png")));
-        String pokeLink = "PokePics/" + randomPokemon + ".png";
-        img = new ImageIcon(new ImageIcon("PokePics/blastoise.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-        pic.setIcon(img);
-
-
 
         label1.setSize(300, 30);
         label1.setLocation(120, 250);
@@ -336,6 +340,223 @@ public class Pokerdle {
         frame.setVisible(true);
         frame.requestFocus();
         frame.addWindowListener(null);
+    }
+
+    public static void meow() {
+        img = new ImageIcon(new ImageIcon("PokePics/bayleef.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+    }
+
+    public static void getPokePic() {
+        if (randomPokemon == "bayleef") {
+            img = new ImageIcon(new ImageIcon("PokePics/bayleef.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "blastoise") {
+            img = new ImageIcon(new ImageIcon("PokePics/blastoise.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "blaziken") {
+            img = new ImageIcon(new ImageIcon("PokePics/blaziken.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "brionne") {
+            img = new ImageIcon(new ImageIcon("PokePics/brionne.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "bulbasaur") {
+            img = new ImageIcon(new ImageIcon("PokePics/bulbasaur.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "charizard") {
+            img = new ImageIcon(new ImageIcon("PokePics/charizard.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "charmander") {
+            img = new ImageIcon(new ImageIcon("PokePics/charmander.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "charmeleon") {
+            img = new ImageIcon(new ImageIcon("PokePics/charmeleon.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "chikorita") {
+            img = new ImageIcon(new ImageIcon("PokePics/chikorita.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "chimchar") {
+            img = new ImageIcon(new ImageIcon("PokePics/chimchar.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "cinderace") {
+            img = new ImageIcon(new ImageIcon("PokePics/cinderace.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "combusken") {
+            img = new ImageIcon(new ImageIcon("PokePics/combusken.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "croconaw") {
+            img = new ImageIcon(new ImageIcon("PokePics/croconaw.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "cyndaquil") {
+            img = new ImageIcon(new ImageIcon("PokePics/cyndaquil.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "dartrix") {
+            img = new ImageIcon(new ImageIcon("PokePics/dartrix.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "decidueye") {
+            img = new ImageIcon(new ImageIcon("PokePics/decidueye.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "dewott") {
+            img = new ImageIcon(new ImageIcon("PokePics/dewott.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "drizzile") {
+            img = new ImageIcon(new ImageIcon("PokePics/drizzile.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "emboar") {
+            img = new ImageIcon(new ImageIcon("PokePics/emboar.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "empoleon") {
+            img = new ImageIcon(new ImageIcon("PokePics/empoleon.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "feraligatr") {
+            img = new ImageIcon(new ImageIcon("PokePics/feraligatr.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "grookey") {
+            img = new ImageIcon(new ImageIcon("PokePics/grookey.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "grotle") {
+            img = new ImageIcon(new ImageIcon("PokePics/grotle.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "grovyle") {
+            img = new ImageIcon(new ImageIcon("PokePics/grovyle.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "incineroar") {
+            img = new ImageIcon(new ImageIcon("PokePics/incineroar.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "infernape") {
+            img = new ImageIcon(new ImageIcon("PokePics/infernape.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "inteleon") {
+            img = new ImageIcon(new ImageIcon("PokePics/inteleon.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "ivysaur") {
+            img = new ImageIcon(new ImageIcon("PokePics/ivysaur.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "litten") {
+            img = new ImageIcon(new ImageIcon("PokePics/litten.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "marshtomp") {
+            img = new ImageIcon(new ImageIcon("PokePics/marshtomp.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "meganium") {
+            img = new ImageIcon(new ImageIcon("PokePics/meganium.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        else if (randomPokemon == "monferno") {
+            img = new ImageIcon(new ImageIcon("PokePics/monferno.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "mudkip") {
+            img = new ImageIcon(new ImageIcon("PokePics/mudkip.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "oshawott") {
+            img = new ImageIcon(new ImageIcon("PokePics/oshawott.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "pichu") {
+            img = new ImageIcon(new ImageIcon("PokePics/pichu.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "pignite") {
+            img = new ImageIcon(new ImageIcon("PokePics/pignite.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "pikachu") {
+            img = new ImageIcon(new ImageIcon("PokePics/pikachu.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "piplup") {
+            img = new ImageIcon(new ImageIcon("PokePics/piplup.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "popplio") {
+            img = new ImageIcon(new ImageIcon("PokePics/popplio.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "primarina") {
+            img = new ImageIcon(new ImageIcon("PokePics/primarina.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "prinplup") {
+            img = new ImageIcon(new ImageIcon("PokePics/prinplup.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "raboot") {
+            img = new ImageIcon(new ImageIcon("PokePics/raboot.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "raichu") {
+            img = new ImageIcon(new ImageIcon("PokePics/raichu.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "rillaboom") {
+            img = new ImageIcon(new ImageIcon("PokePics/rillaboom.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "rowlet") {
+            img = new ImageIcon(new ImageIcon("PokePics/rowlet.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "samurott") {
+            img = new ImageIcon(new ImageIcon("PokePics/samurott.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "sceptile") {
+            img = new ImageIcon(new ImageIcon("PokePics/sceptile.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "scorbunny") {
+            img = new ImageIcon(new ImageIcon("PokePics/scorbunny.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "serperior") {
+            img = new ImageIcon(new ImageIcon("PokePics/serperior.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "servine") {
+            img = new ImageIcon(new ImageIcon("PokePics/servine.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "snivy") {
+            img = new ImageIcon(new ImageIcon("PokePics/snivy.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "squirtle") {
+            img = new ImageIcon(new ImageIcon("PokePics/squirtle.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "swampert") {
+            img = new ImageIcon(new ImageIcon("PokePics/swampert.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "tepig") {
+            img = new ImageIcon(new ImageIcon("PokePics/tepig.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "thwackey") {
+            img = new ImageIcon(new ImageIcon("PokePics/thwackey.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "torchic") {
+            img = new ImageIcon(new ImageIcon("PokePics/torchic.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "torracat") {
+            img = new ImageIcon(new ImageIcon("PokePics/torracat.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "torterra") {
+            img = new ImageIcon(new ImageIcon("PokePics/torterra.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "totodile") {
+            img = new ImageIcon(new ImageIcon("PokePics/totodile.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "treecko") {
+            img = new ImageIcon(new ImageIcon("PokePics/treecko.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "turtwig") {
+            img = new ImageIcon(new ImageIcon("PokePics/turtwig.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "chespin") {
+            img = new ImageIcon(new ImageIcon("PokePics/chespin.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "quilladin") {
+            img = new ImageIcon(new ImageIcon("PokePics/quilladin.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "chesnaught") {
+            img = new ImageIcon(new ImageIcon("PokePics/chesnaught.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "fennekin") {
+            img = new ImageIcon(new ImageIcon("PokePics/fennekin.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "braixen") {
+            img = new ImageIcon(new ImageIcon("PokePics/braixen.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "delphox") {
+            img = new ImageIcon(new ImageIcon("PokePics/delphox.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "froakie") {
+            img = new ImageIcon(new ImageIcon("PokePics/froakie.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "frogadier") {
+            img = new ImageIcon(new ImageIcon("PokePics/frogadier.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon == "greninja") {
+            img = new ImageIcon(new ImageIcon("PokePics/greninja.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
     }
 
 
