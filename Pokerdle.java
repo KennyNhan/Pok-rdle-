@@ -31,6 +31,7 @@ public class Pokerdle {
 
     static String feedback = "Welcome to pok-rdle";
     static JLabel feedbackLabel = new JLabel(feedback);
+    static ImageIcon img;
 
     static String guessLabelText = "__";
     static JLabel label1 = new JLabel(guessLabelText , JLabel.CENTER);
@@ -71,15 +72,15 @@ public class Pokerdle {
         String randomPokemon = pokemon.get(r.nextInt(upperBound));
         String[] correctValues = pokemonMap.get(randomPokemon).split(",");
 
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File("PokePics/"+randomPokemon+".webp"));
-        } catch (IOException e) {
-            System.out.println("Read in image error...");
-            feedback = "Read in image error...";
-            feedbackLabel.setText(feedback);
-        }
-        //.setIconImage(img);
+        // try {
+        //     img = new ImageIcon(ImageIO.read(new File("blastoise.png")));
+        // } catch (IOException e) {
+        //     System.out.println("Read in image error...");
+        //     feedback = "Read in image error...";
+        //     feedbackLabel.setText(feedback);
+        // }
+        // pic.setIcon(img);
+        
         
         Scanner sc = new Scanner(System.in);  // Create a Scanner object
         
@@ -89,16 +90,15 @@ public class Pokerdle {
         System.out.println(pokemonMap);
         System.out.println(randomPokemon);
 
-        String guess = null;
-
         while(count < 5){
             System.out.println("Guess a Pokemon");
             feedback = "Guess a Pokemon";
             feedbackLabel.setText(feedback);
 
+            String guess = ")";
             if (count == 0) {
                 while(label2.getText().equals("__")) {
-                    System.out.println(randomPokemon);
+                    System.out.println("waiting.");
                 }
                 guess = label2.getText();
                 System.out.println(guess);
@@ -224,6 +224,7 @@ public class Pokerdle {
         feedbackLabel.setSize(300, 30);
         feedbackLabel.setLocation(200, 10);
 
+
         JLabel guess1 = new JLabel("Current guess");
         guess1.setSize(100, 30);
         guess1.setLocation(0, 250);
@@ -243,6 +244,18 @@ public class Pokerdle {
         guess6.setSize(100, 30);
         guess6.setLocation(0, 500);
 
+        
+        JLabel pic = new JLabel(img, JLabel.CENTER);
+        try {
+            img = new ImageIcon(ImageIO.read(new File("PokePics/blastoise.png")));
+        } catch (IOException e) {
+            System.out.println("Read in image error...");
+            feedback = "Read in image error...";
+            feedbackLabel.setText(feedback);
+        }
+        pic.setIcon(img);
+        System.out.println(img.getIconWidth());
+
 
 
         label1.setSize(300, 30);
@@ -257,6 +270,8 @@ public class Pokerdle {
         label5.setLocation(120, 450);
         label6.setSize(300, 30);
         label6.setLocation(120, 500);
+        pic.setSize(200, 200);
+        pic.setLocation(400, 400);
 
 
 
@@ -314,6 +329,7 @@ public class Pokerdle {
         contentPane.add(label5);
         contentPane.add(label6);
         contentPane.add(textField);
+        contentPane.add(pic);
 
         frame.setContentPane(contentPane);
         frame.setSize(600, 800);
