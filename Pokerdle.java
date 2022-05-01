@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Graphics.*;
 import java.awt.Toolkit;
 
@@ -32,6 +33,7 @@ public class Pokerdle {
     static String feedback = "Welcome to pok-rdle";
     static JLabel feedbackLabel = new JLabel(feedback);
     static ImageIcon img;
+    static String randomPokemon;
 
     static String guessLabelText = "__";
     static JLabel label1 = new JLabel(guessLabelText , JLabel.CENTER);
@@ -48,6 +50,7 @@ public class Pokerdle {
     Graphics g3;
 
     Graphics g4;
+    
 
     public static void main(String[] args) throws IOException {
         Pokerdle pokerdle = new Pokerdle();
@@ -67,9 +70,10 @@ public class Pokerdle {
              pokemon.add(split[0]);
              pokemonMap.put(split[0], split[1]);
         }
+
         Random r = new Random();
         int upperBound = pokemon.size() - 1;
-        String randomPokemon = pokemon.get(r.nextInt(upperBound));
+        randomPokemon = pokemon.get(r.nextInt(upperBound));
         String[] correctValues = pokemonMap.get(randomPokemon).split(",");
 
         // try {
@@ -246,15 +250,10 @@ public class Pokerdle {
 
         
         JLabel pic = new JLabel(img, JLabel.CENTER);
-        try {
-            img = new ImageIcon(ImageIO.read(new File("PokePics/blastoise.png")));
-        } catch (IOException e) {
-            System.out.println("Read in image error...");
-            feedback = "Read in image error...";
-            feedbackLabel.setText(feedback);
-        }
+        // img = new ImageIcon(ImageIO.read(new File("PokePics/blastoise.png")));
+        String pokeLink = "PokePics/" + randomPokemon + ".png";
+        img = new ImageIcon(new ImageIcon("PokePics/blastoise.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         pic.setIcon(img);
-        System.out.println(img.getIconWidth());
 
 
 
@@ -271,7 +270,7 @@ public class Pokerdle {
         label6.setSize(300, 30);
         label6.setLocation(120, 500);
         pic.setSize(200, 200);
-        pic.setLocation(400, 400);
+        pic.setLocation(85, 55);
 
 
 
@@ -338,6 +337,7 @@ public class Pokerdle {
         frame.requestFocus();
         frame.addWindowListener(null);
     }
+
 
     // public class Frame extends JFrame{
     //     JFrame frame;
