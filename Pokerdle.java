@@ -115,42 +115,42 @@ public class Pokerdle {
             feedback = "Guess a Pokemon";
             feedbackLabel.setText(feedback);
 
-            String guess = ")";
-            // if (count == 0) {
-            //     while(label2.getText().equals("__")) {
-            //         System.out.println("waiting.");
-            //     }
-            //     guess = label2.getText();
-            //     System.out.println(guess);
-            // }
-            // if (count == 1) {
-            //     while(label3.getText().equals("__")) {
-            //         System.out.println("waiting.");
-            //     }
-            //     guess = label3.getText();
-            //     System.out.println(guess);
-            // }
-            // if (count == 2) {
-            //     while(label4.getText().equals("__")) {
-            //         System.out.println("waiting.");
-            //     }
-            //     guess = label4.getText();
-            //     System.out.println(guess);
-            // }
-            // if (count == 3) {
-            //     while(label5.getText().equals("__")) {
-            //         System.out.println("waiting.");
-            //     }
-            //     guess = label5.getText();
-            //     System.out.println(guess);
-            // }
-            // if (count == 4) {
-            //     while(label6.getText().equals("__")) {
-            //         System.out.println("waiting.");
-            //     }
-            //     guess = label6.getText();
-            //     System.out.println(guess);
-            // }
+            String guess ="__";
+            if (count == 0) {
+                while(label2.getText().equals("__")) {
+                    System.out.println(randomPokemon);
+                }
+                guess = label2.getText();
+                System.out.println(guess);
+            }
+            if (count == 1) {
+                while(label3.getText().equals("__")) {
+                    System.out.println("waiting.");
+                }
+                guess = label3.getText();
+                System.out.println(guess);
+            }
+            if (count == 2) {
+                while(label4.getText().equals("__")) {
+                    System.out.println("waiting.");
+                }
+                guess = label4.getText();
+                System.out.println(guess);
+            }
+            if (count == 3) {
+                while(label5.getText().equals("__")) {
+                    System.out.println("waiting.");
+                }
+                guess = label5.getText();
+                System.out.println(guess);
+            }
+            if (count == 4) {
+                while(label6.getText().equals("__")) {
+                    System.out.println("waiting.");
+                }
+                guess = label6.getText();
+                System.out.println(guess);
+            }
             
             
             while(pokemonMap.get(guess.toLowerCase()) == null){
