@@ -1,8 +1,8 @@
 # Pok-rdle-
 
-This is a Pokemon wordle game. 
+This is a Pokemon guessing game. 
 
-The Pokemon in our database that are valid guesses only contain the starter Pokemon from each generation including their evolutions as well as Pichu, Pikachu, and Raichu. 
+Pokemon that are valid guesses only contain the starter Pokemon from each generation including their evolutions as well as Pichu, Pikachu, and Raichu. 
 
 You will have 5 guesses to guess the correct Pokemon. 
 
