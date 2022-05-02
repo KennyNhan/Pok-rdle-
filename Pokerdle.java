@@ -102,13 +102,12 @@ public class Pokerdle {
         int y = 150;
         System.out.println(pokemonMap);
         System.out.println(randomPokemon);
-
+        String guess ="__";
         while(count < 5){
             System.out.println("Guess a Pokemon");
             feedback = "Guess a Pokemon";
             feedbackLabel.setText(feedback);
 
-            String guess ="__";
             if (count == 0) {
                 while(label2.getText().equals("__")) {
                     System.out.println(randomPokemon);
@@ -893,7 +892,7 @@ public class Pokerdle {
         else if (randomPokemon.equals("cyndaquil")) {
             img = new ImageIcon(new ImageIcon("PokePics/cyndaquil.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         }
-        else if (randomPokemon.equals("dartrix")) {
+        else if (randomPokemon.equals("datrix")) {
             img = new ImageIcon(new ImageIcon("PokePics/dartrix.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         }
         else if (randomPokemon.equals("decidueye")) {
