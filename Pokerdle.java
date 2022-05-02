@@ -27,7 +27,7 @@ import java.awt.event.ActionListener;
  */
 public class Pokerdle {
     JFrame frame;
-    static final int GUESS_IMG_SIZE = 80;
+    static final int GUESS_IMG_SIZE = 65;
     static Boolean won = false;
 
     // static JLabel corectPic;
@@ -553,7 +553,7 @@ public class Pokerdle {
         }
         if (!won) {
             System.out.println("out of guesses");
-            feedback = "out of guesses";
+            feedback = ("Sorry! the correct pokemon is " + randomPokemon);
             feedbackLabel.setText(feedback);
         } 
         pic.setIcon(img);
@@ -576,49 +576,49 @@ public class Pokerdle {
 
         JLabel guess1 = new JLabel("Current guess");
         guess1.setSize(100, 30);
-        guess1.setLocation(0, 250);
+        guess1.setLocation(0, 240);
         JLabel guess2 = new JLabel("Guess 1:");
         guess2.setSize(100, 30);
         guess2.setLocation(0, 300);
         JLabel guess3 = new JLabel("Guess 2:");
         guess3.setSize(100, 30);
-        guess3.setLocation(0, 350);
+        guess3.setLocation(0, 370);
         JLabel guess4 = new JLabel("Guess 3:");
         guess4.setSize(100, 30);
-        guess4.setLocation(0, 400);
+        guess4.setLocation(0, 440);
         JLabel guess5 = new JLabel("Guess 4:");
         guess5.setSize(100, 30);
-        guess5.setLocation(0, 450);
+        guess5.setLocation(0, 510);
         JLabel guess6 = new JLabel("Guess 5:");
         guess6.setSize(100, 30);
-        guess6.setLocation(0, 500);
-        JLabel gen = new JLabel("Gen  |");
+        guess6.setLocation(0, 580);
+        JLabel gen = new JLabel("Gen");
         gen.setSize(100, 30);
         gen.setLocation(320, 220);
-        JLabel type1 = new JLabel("  Type 1  |");
+        JLabel type1 = new JLabel("Type 1");
         type1.setSize(100, 30);
-        type1.setLocation(353, 220);
-        JLabel type2 = new JLabel("  Type 2  |");
+        type1.setLocation(381, 220);
+        JLabel type2 = new JLabel("Type 2");
         type2.setSize(100, 30);
-        type2.setLocation(410, 220);
-        JLabel evol = new JLabel("  Evol");
+        type2.setLocation(450, 220);
+        JLabel evol = new JLabel("Evol");
         evol.setSize(100, 30);
-        evol.setLocation(460, 220);
+        evol.setLocation(527, 220);
 
 
         label1.setSize(300, 30);
-        label1.setLocation(120, 250);
+        label1.setLocation(100, 240);
         label2.setSize(300, 30);
-        label2.setLocation(120, 300);
+        label2.setLocation(100, 300);
         label3.setSize(300, 30);
-        label3.setLocation(120, 350);
+        label3.setLocation(100, 370);
         label4.setSize(300, 30);
-        label4.setLocation(120, 400);
+        label4.setLocation(100, 440);
         label5.setSize(300, 30);
-        label5.setLocation(120, 450);
+        label5.setLocation(100, 510);
         label6.setSize(300, 30);
-        label6.setLocation(120, 500);
-        pic.setSize(200, 200);
+        label6.setLocation(100, 580);
+        pic.setSize(200, 195);
         pic.setLocation(85, 55);
 
         // corectPic = new JLabel(correctImg, JLabel.CENTER);
@@ -632,82 +632,82 @@ public class Pokerdle {
         generation1.setVisible(false);
         generation2 = new JLabel(correctImg, JLabel.CENTER);
         generation2.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        generation2.setLocation(300, 330);
+        generation2.setLocation(300, 350);
         generation2.setVisible(false);
         generation3 = new JLabel(correctImg, JLabel.CENTER);
         generation3.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        generation3.setLocation(300, 380);
+        generation3.setLocation(300, 420);
         generation3.setVisible(false);
         generation4 = new JLabel(correctImg, JLabel.CENTER);
         generation4.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        generation4.setLocation(300, 430);
+        generation4.setLocation(300, 490);
         generation4.setVisible(false);
         generation5 = new JLabel(correctImg, JLabel.CENTER);
         generation5.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        generation5.setLocation(300, 480);
+        generation5.setLocation(300, 560);
         generation5.setVisible(false);
 
         type11 = new JLabel(correctImg, JLabel.CENTER);
         type11.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type11.setLocation(360, 280);
+        type11.setLocation(370, 280);
         type11.setVisible(true);
         type12 = new JLabel(correctImg, JLabel.CENTER);
         type12.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type12.setLocation(360, 330);
+        type12.setLocation(370, 350);
         type12.setVisible(false);
         type13 = new JLabel(correctImg, JLabel.CENTER);
         type13.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type13.setLocation(360, 380);
+        type13.setLocation(370, 420);
         type13.setVisible(false);
         type14 = new JLabel(correctImg, JLabel.CENTER);
         type14.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type14.setLocation(360, 430);
+        type14.setLocation(370, 490);
         type14.setVisible(false);
         type15 = new JLabel(correctImg, JLabel.CENTER);
         type15.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type15.setLocation(360, 480);
+        type15.setLocation(370, 560);
         type15.setVisible(false);
 
         type21 = new JLabel(correctImg, JLabel.CENTER);
         type21.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type21.setLocation(420, 280);
+        type21.setLocation(440, 280);
         type21.setVisible(false);
         type22 = new JLabel(correctImg, JLabel.CENTER);
         type22.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type22.setLocation(420, 330);
+        type22.setLocation(440, 350);
         type22.setVisible(false);
         type23 = new JLabel(correctImg, JLabel.CENTER);
         type23.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type23.setLocation(420, 380);
+        type23.setLocation(440, 420);
         type23.setVisible(false);
         type24 = new JLabel(correctImg, JLabel.CENTER);
         type24.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type24.setLocation(420, 430);
+        type24.setLocation(440, 490);
         type24.setVisible(false);
         type25 = new JLabel(correctImg, JLabel.CENTER);
         type25.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        type25.setLocation(420, 480);
+        type25.setLocation(440, 560);
         type25.setVisible(false);
 
         evolution1 = new JLabel(correctImg, JLabel.CENTER);
         evolution1.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        evolution1.setLocation(480, 280);
+        evolution1.setLocation(510, 280);
         evolution1.setVisible(false);
         evolution2 = new JLabel(correctImg, JLabel.CENTER);
         evolution2.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        evolution2.setLocation(480, 330);
+        evolution2.setLocation(510, 350);
         evolution2.setVisible(false);
         evolution3 = new JLabel(correctImg, JLabel.CENTER);
         evolution3.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        evolution3.setLocation(480, 380);
+        evolution3.setLocation(510, 420);
         evolution3.setVisible(false);
         evolution4 = new JLabel(correctImg, JLabel.CENTER);
         evolution4.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        evolution4.setLocation(480, 430);
+        evolution4.setLocation(510, 490);
         evolution4.setVisible(false);
         evolution5 = new JLabel(correctImg, JLabel.CENTER);
         evolution5.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        evolution5.setLocation(480, 480);
+        evolution5.setLocation(510, 560);
         evolution5.setVisible(false);
 
         try {
@@ -732,7 +732,7 @@ public class Pokerdle {
         textField.setColumns(50);
         textField.setSize(300, 40);
         textField.setVisible(true);
-        textField.setLocation(100, 600);
+        textField.setLocation(280, 160);
 
         // // // Correct Pic
         // corectPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
@@ -973,6 +973,9 @@ public class Pokerdle {
         if (randomPokemon.equals("prinplup")) {
             img = new ImageIcon(new ImageIcon("PokePics/prinplup.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         }
+        if (randomPokemon.equals("quilava")) {
+            img = new ImageIcon(new ImageIcon("PokePics/quilava.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
         if (randomPokemon.equals("raboot")) {
             img = new ImageIcon(new ImageIcon("PokePics/raboot.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         }
@@ -1003,6 +1006,9 @@ public class Pokerdle {
         if (randomPokemon.equals("snivy")) {
             img = new ImageIcon(new ImageIcon("PokePics/snivy.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         }
+        if (randomPokemon.equals("sobble")) {
+            img = new ImageIcon(new ImageIcon("PokePics/sobble.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
         if (randomPokemon.equals("squirtle")) {
             img = new ImageIcon(new ImageIcon("PokePics/squirtle.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         }
@@ -1032,6 +1038,9 @@ public class Pokerdle {
         }
         if (randomPokemon.equals("turtwig")) {
             img = new ImageIcon(new ImageIcon("PokePics/turtwig.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        }
+        if (randomPokemon.equals("typhlosion")) {
+            img = new ImageIcon(new ImageIcon("PokePics/typhlosion.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         }
         if (randomPokemon.equals("chespin")) {
             img = new ImageIcon(new ImageIcon("PokePics/chespin.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
