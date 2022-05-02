@@ -11,7 +11,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Graphics.*;
+import java.awt.Graphics.*; 
 import java.awt.Toolkit;
 
 import javax.imageio.ImageIO;
@@ -27,8 +27,16 @@ import java.awt.event.ActionListener;
  */
 public class Pokerdle {
     JFrame frame;
-    final int GUESS_IMG_SIZE = 50;
+    static final int GUESS_IMG_SIZE = 80;
     static Boolean won = false;
+
+    static JLabel corectPic;
+    static JLabel wrongPic;
+    static JLabel upPic;
+    static JLabel downPic;
+
+
+
 
     static String feedback = "Welcome to pok-rdle";
     static JLabel feedbackLabel = new JLabel(feedback);
@@ -154,7 +162,7 @@ public class Pokerdle {
                     int correctInt = Integer.valueOf(tempCorrect);
                     if (intValue == correctInt){
                         isItCorrect[i] = "equal";
-                           
+                             
 
                     }
                     else if ( intValue < correctInt){
@@ -177,20 +185,32 @@ public class Pokerdle {
             for(String value : isItCorrect){
                 
                 if(value == "equal"){
-                    Color colorBall = Color.GREEN;
+                    // Color colorBall = Color.GREEN;
+                    corectPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+                    corectPic.setLocation(x, y);
 
                 }
                 if(value == "more"){
-                    Color colorBall = Color.BLUE;
+                    // Color colorBall = Color.BLUE;
+                    upPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+                    upPic.setLocation(x,y);
+            
                 }
                 if(value == "less"){
-                    Color colorBall = Color.BLUE;
+                    // Color colorBall = Color.BLUE;
+                    downPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+                    downPic.setLocation(x,y);
+
                 }
                 if(value == "true"){
-                    Color colorBall = Color.GREEN;
+                    // Color colorBall = Color.GREEN;
+                    corectPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+                    corectPic.setLocation(x,y);
                 }
                 if(value == "false"){
-                    Color colorBall = Color.RED;
+                    // Color colorBall = Color.RED;
+                    wrongPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+                    wrongPic.setLocation(x,y);
                 }
                 x += 100;
                 System.out.println(value);
@@ -265,10 +285,10 @@ public class Pokerdle {
         pic.setSize(200, 200);
         pic.setLocation(85, 55);
 
-        JLabel corectPic = new JLabel(correctImg, JLabel.CENTER);
-        JLabel wrongPic = new JLabel(correctImg, JLabel.CENTER);
-        JLabel upPic = new JLabel(correctImg, JLabel.CENTER);
-        JLabel downPic = new JLabel(correctImg, JLabel.CENTER);
+        corectPic = new JLabel(correctImg, JLabel.CENTER);
+        wrongPic = new JLabel(correctImg, JLabel.CENTER);
+        upPic = new JLabel(correctImg, JLabel.CENTER);
+        downPic = new JLabel(correctImg, JLabel.CENTER);
 
         try {
             correctImg = new ImageIcon(ImageIO.read(new File("GuessPics/correct.png")));
@@ -294,21 +314,21 @@ public class Pokerdle {
         textField.setVisible(true);
         textField.setLocation(100, 600);
 
-        // Correct Pic
-        corectPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        corectPic.setLocation(300, 290);
+        // // Correct Pic
+        // corectPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        // corectPic.setLocation(300, 290);
 
-        // Wrong Pic
-        wrongPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        wrongPic.setLocation(360, 290);
+        // // Wrong Pic
+        // wrongPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        // wrongPic.setLocation(360, 290);
 
-        // Up pic
-        upPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        upPic.setLocation(420, 290);
+        // // Up pic
+        // upPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        // upPic.setLocation(420, 290);
 
-        // Down Pic
-        downPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        downPic.setLocation(480, 290);
+        // // Down Pic
+        // downPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        // downPic.setLocation(480, 290);
     
     
         ActionListener al = new ActionListener(){
