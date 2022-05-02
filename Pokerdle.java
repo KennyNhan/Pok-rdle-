@@ -268,6 +268,18 @@ public class Pokerdle {
         JLabel guess6 = new JLabel("Guess 5:");
         guess6.setSize(100, 30);
         guess6.setLocation(0, 500);
+        JLabel gen = new JLabel("Gen  |");
+        gen.setSize(100, 30);
+        gen.setLocation(320, 220);
+        JLabel type1 = new JLabel("  Type 1  |");
+        type1.setSize(100, 30);
+        type1.setLocation(353, 220);
+        JLabel type2 = new JLabel("  Type 2  |");
+        type2.setSize(100, 30);
+        type2.setLocation(410, 220);
+        JLabel evol = new JLabel("  Evol");
+        evol.setSize(100, 30);
+        evol.setLocation(460, 220);
 
 
         label1.setSize(300, 30);
@@ -376,6 +388,10 @@ public class Pokerdle {
         contentPane.add(label6);
         contentPane.add(textField);
         contentPane.add(pic);
+        contentPane.add(gen);
+        contentPane.add(type1);
+        contentPane.add(type2);
+        contentPane.add(evol);
 
         // Adding guess img
         contentPane.add(upPic);
