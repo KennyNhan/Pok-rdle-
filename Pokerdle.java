@@ -30,11 +30,14 @@ public class Pokerdle {
     static final int GUESS_IMG_SIZE = 80;
     static Boolean won = false;
 
-    static JLabel corectPic;
-    static JLabel wrongPic;
-    static JLabel upPic;
-    static JLabel downPic;
+    // static JLabel corectPic;
+    // static JLabel wrongPic;
+    // static JLabel upPic;
+    // static JLabel downPic;
 
+    static JLabel generation1, generation2, generation3, generation4, generation5;
+    static JLabel type11, type12, type13, type14, type15, type21, type22, type23, type24, type25;
+    static JLabel evolution1, evolution2, evolution3, evolution4, evolution5;
 
 
 
@@ -181,36 +184,358 @@ public class Pokerdle {
                     }
                 }
             }
-            int x = 150;
+            int x = 250;
             for(String value : isItCorrect){
                 
                 if(value == "equal"){
-                    // Color colorBall = Color.GREEN;
-                    corectPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-                    corectPic.setLocation(x, y);
-
+                    //if value is the 0 index
+                    if(value == isItCorrect[0] && count == 0) {
+                        generation1.setIcon(correctImg);
+                        generation1.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 1) {
+                        generation2.setIcon(correctImg);
+                        generation2.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 2) {
+                        generation3.setIcon(correctImg);
+                        generation3.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 3) {
+                        generation4.setIcon(correctImg);
+                        generation4.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 4) {
+                        generation5.setIcon(correctImg);
+                        generation5.setVisible(true);
+                    }
+                    //if value is the first index
+                    if(value == isItCorrect[1] && count == 0) {
+                        type11.setIcon(correctImg);
+                        type11.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 1) {
+                        type12.setIcon(correctImg);
+                        type12.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 2) {
+                        type13.setIcon(correctImg);
+                        type13.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 3) {
+                        type14.setIcon(correctImg);
+                        type14.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 4) {
+                        type15.setIcon(correctImg);
+                        type15.setVisible(true);
+                    }
+                    //if value is the second index
+                    if(value == isItCorrect[2] && count == 0) {
+                        type21.setIcon(correctImg);
+                        type21.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 1) {
+                        type22.setIcon(correctImg);
+                        type22.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 2) {
+                        type23.setIcon(correctImg);
+                        type23.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 3) {
+                        type24.setIcon(correctImg);
+                        type24.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 4) {
+                        type25.setIcon(correctImg);
+                        type25.setVisible(true);
+                    }
+                    //if value is the last index
+                    if(value == isItCorrect[3] && count == 0) {
+                        evolution1.setIcon(correctImg);
+                        evolution1.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 1) {
+                        evolution2.setIcon(correctImg);
+                        evolution2.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 2) {
+                        evolution3.setIcon(correctImg);
+                        evolution3.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 3) {
+                        evolution4.setIcon(correctImg);
+                        evolution4.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 4) {
+                        evolution5.setIcon(correctImg);
+                        evolution5.setVisible(true);
+                    }
                 }
                 if(value == "more"){
-                    // Color colorBall = Color.BLUE;
-                    upPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-                    upPic.setLocation(x,y);
-            
+                    //if value is the 0 index
+                    if(value == isItCorrect[0] && count == 0) {
+                        generation1.setIcon(upImg);
+                        generation1.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 1) {
+                        generation2.setIcon(upImg);
+                        generation2.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 2) {
+                        generation3.setIcon(upImg);
+                        generation3.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 3) {
+                        generation4.setIcon(upImg);
+                        generation4.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 4) {
+                        generation5.setIcon(upImg);
+                        generation5.setVisible(true);
+                    }
+                    //if value is the first index
+                    if(value == isItCorrect[1] && count == 0) {
+                        type11.setIcon(upImg);
+                        type11.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 1) {
+                        type12.setIcon(upImg);
+                        type12.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 2) {
+                        type13.setIcon(upImg);
+                        type13.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 3) {
+                        type14.setIcon(upImg);
+                        type14.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 4) {
+                        type15.setIcon(upImg);
+                        type15.setVisible(true);
+                    }
+                    //if value is the second index
+                    if(value == isItCorrect[2] && count == 0) {
+                        type21.setIcon(upImg);
+                        type21.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 1) {
+                        type22.setIcon(upImg);
+                        type22.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 2) {
+                        type23.setIcon(upImg);
+                        type23.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 3) {
+                        type24.setIcon(upImg);
+                        type24.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 4) {
+                        type25.setIcon(upImg);
+                        type25.setVisible(true);
+                    }
+                    //if value is the last index
+                    if(value == isItCorrect[3] && count == 0) {
+                        evolution1.setIcon(upImg);
+                        evolution1.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 1) {
+                        evolution2.setIcon(upImg);
+                        evolution2.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 2) {
+                        evolution3.setIcon(upImg);
+                        evolution3.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 3) {
+                        evolution4.setIcon(upImg);
+                        evolution4.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 4) {
+                        evolution5.setIcon(upImg);
+                        evolution5.setVisible(true);
+                    }
                 }
                 if(value == "less"){
-                    // Color colorBall = Color.BLUE;
-                    downPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-                    downPic.setLocation(x,y);
-
+                    //if value is the 0 index
+                    if(value == isItCorrect[0] && count == 0) {
+                        generation1.setIcon(downImg);
+                        generation1.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 1) {
+                        generation2.setIcon(downImg);
+                        generation2.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 2) {
+                        generation3.setIcon(downImg);
+                        generation3.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 3) {
+                        generation4.setIcon(downImg);
+                        generation4.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 4) {
+                        generation5.setIcon(downImg);
+                        generation5.setVisible(true);
+                    }
+                    //if value is the first index
+                    if(value == isItCorrect[1] && count == 0) {
+                        type11.setIcon(downImg);
+                        type11.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 1) {
+                        type12.setIcon(downImg);
+                        type12.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 2) {
+                        type13.setIcon(downImg);
+                        type13.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 3) {
+                        type14.setIcon(downImg);
+                        type14.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 4) {
+                        type15.setIcon(downImg);
+                        type15.setVisible(true);
+                    }
+                    //if value is the second index
+                    if(value == isItCorrect[2] && count == 0) {
+                        type21.setIcon(downImg);
+                        type21.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 1) {
+                        type22.setIcon(downImg);
+                        type22.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 2) {
+                        type23.setIcon(downImg);
+                        type23.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 3) {
+                        type24.setIcon(downImg);
+                        type24.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 4) {
+                        type25.setIcon(downImg);
+                        type25.setVisible(true);
+                    }
+                    //if value is the last index
+                    if(value == isItCorrect[3] && count == 0) {
+                        evolution1.setIcon(downImg);
+                        evolution1.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 1) {
+                        evolution2.setIcon(downImg);
+                        evolution2.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 2) {
+                        evolution3.setIcon(downImg);
+                        evolution3.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 3) {
+                        evolution4.setIcon(downImg);
+                        evolution4.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 4) {
+                        evolution5.setIcon(downImg);
+                        evolution5.setVisible(true);
+                    }
                 }
                 if(value == "true"){
-                    // Color colorBall = Color.GREEN;
-                    corectPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-                    corectPic.setLocation(x,y);
+                    //if value is the 0 index
+                    if(value == isItCorrect[0] && count == 0) {
+                        generation1.setIcon(correctImg);
+                        generation1.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 1) {
+                        generation2.setIcon(correctImg);
+                        generation2.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 2) {
+                        generation3.setIcon(correctImg);
+                        generation3.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 3) {
+                        generation4.setIcon(correctImg);
+                        generation4.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 4) {
+                        generation5.setIcon(correctImg);
+                        generation5.setVisible(true);
+                    }
+                    //if value is the first index
+                    if(value == isItCorrect[1] && count == 0) {
+                        type11.setIcon(correctImg);
+                        type11.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 1) {
+                        type12.setIcon(correctImg);
+                        type12.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 2) {
+                        type13.setIcon(correctImg);
+                        type13.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 3) {
+                        type14.setIcon(correctImg);
+                        type14.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 4) {
+                        type15.setIcon(correctImg);
+                        type15.setVisible(true);
+                    }
+                    //if value is the second index
+                    if(value == isItCorrect[2] && count == 0) {
+                        type21.setIcon(correctImg);
+                        type21.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 1) {
+                        type22.setIcon(correctImg);
+                        type22.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 2) {
+                        type23.setIcon(correctImg);
+                        type23.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 3) {
+                        type24.setIcon(correctImg);
+                        type24.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 4) {
+                        type25.setIcon(correctImg);
+                        type25.setVisible(true);
+                    }
+                    //if value is the last index
+                    if(value == isItCorrect[3] && count == 0) {
+                        evolution1.setIcon(correctImg);
+                        evolution1.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 1) {
+                        evolution2.setIcon(correctImg);
+                        evolution2.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 2) {
+                        evolution3.setIcon(correctImg);
+                        evolution3.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 3) {
+                        evolution4.setIcon(correctImg);
+                        evolution4.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 4) {
+                        evolution5.setIcon(correctImg);
+                        evolution5.setVisible(true);
+                    }
                 }
                 if(value == "false"){
-                    // Color colorBall = Color.RED;
-                    wrongPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-                    wrongPic.setLocation(x,y);
+                    //if value is the 0 index
+                    if(value == isItCorrect[0] && count == 0) {
+                        generation1.setIcon(wrongImg);
+                        generation1.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 1) {
+                        generation2.setIcon(wrongImg);
+                        generation2.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 2) {
+                        generation3.setIcon(wrongImg);
+                        generation3.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 3) {
+                        generation4.setIcon(wrongImg);
+                        generation4.setVisible(true);
+                    } else if(value == isItCorrect[0] && count == 4) {
+                        generation5.setIcon(wrongImg);
+                        generation5.setVisible(true);
+                    }
+                    //if value is the first index
+                    if(value == isItCorrect[1] && count == 0) {
+                        type11.setIcon(wrongImg);
+                        type11.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 1) {
+                        type12.setIcon(wrongImg);
+                        type12.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 2) {
+                        type13.setIcon(wrongImg);
+                        type13.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 3) {
+                        type14.setIcon(wrongImg);
+                        type14.setVisible(true);
+                    } else if(value == isItCorrect[1] && count == 4) {
+                        type15.setIcon(wrongImg);
+                        type15.setVisible(true);
+                    }
+                    //if value is the second index
+                    if(value == isItCorrect[2] && count == 0) {
+                        type21.setIcon(wrongImg);
+                        type21.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 1) {
+                        type22.setIcon(wrongImg);
+                        type22.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 2) {
+                        type23.setIcon(wrongImg);
+                        type23.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 3) {
+                        type24.setIcon(wrongImg);
+                        type24.setVisible(true);
+                    } else if(value == isItCorrect[2] && count == 4) {
+                        type25.setIcon(wrongImg);
+                        type25.setVisible(true);
+                    }
+                    //if value is the last index
+                    if(value == isItCorrect[3] && count == 0) {
+                        evolution1.setIcon(wrongImg);
+                        evolution1.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 1) {
+                        evolution2.setIcon(wrongImg);
+                        evolution2.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 2) {
+                        evolution3.setIcon(wrongImg);
+                        evolution3.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 3) {
+                        evolution4.setIcon(wrongImg);
+                        evolution4.setVisible(true);
+                    } else if(value == isItCorrect[3] && count == 4) {
+                        evolution5.setIcon(wrongImg);
+                        evolution5.setVisible(true);
+                    }
                 }
                 x += 100;
                 System.out.println(value);
@@ -297,10 +622,94 @@ public class Pokerdle {
         pic.setSize(200, 200);
         pic.setLocation(85, 55);
 
-        corectPic = new JLabel(correctImg, JLabel.CENTER);
-        wrongPic = new JLabel(correctImg, JLabel.CENTER);
-        upPic = new JLabel(correctImg, JLabel.CENTER);
-        downPic = new JLabel(correctImg, JLabel.CENTER);
+        // corectPic = new JLabel(correctImg, JLabel.CENTER);
+        // wrongPic = new JLabel(correctImg, JLabel.CENTER);
+        // upPic = new JLabel(correctImg, JLabel.CENTER);
+        // downPic = new JLabel(correctImg, JLabel.CENTER);
+
+        generation1 = new JLabel(correctImg, JLabel.CENTER);
+        generation1.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        generation1.setLocation(300, 280);
+        generation1.setVisible(false);
+        generation2 = new JLabel(correctImg, JLabel.CENTER);
+        generation2.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        generation2.setLocation(300, 330);
+        generation2.setVisible(false);
+        generation3 = new JLabel(correctImg, JLabel.CENTER);
+        generation3.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        generation3.setLocation(300, 380);
+        generation3.setVisible(false);
+        generation4 = new JLabel(correctImg, JLabel.CENTER);
+        generation4.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        generation4.setLocation(300, 430);
+        generation4.setVisible(false);
+        generation5 = new JLabel(correctImg, JLabel.CENTER);
+        generation5.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        generation5.setLocation(300, 480);
+        generation5.setVisible(false);
+
+        type11 = new JLabel(correctImg, JLabel.CENTER);
+        type11.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type11.setLocation(360, 280);
+        type11.setVisible(true);
+        type12 = new JLabel(correctImg, JLabel.CENTER);
+        type12.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type12.setLocation(360, 330);
+        type12.setVisible(false);
+        type13 = new JLabel(correctImg, JLabel.CENTER);
+        type13.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type13.setLocation(360, 380);
+        type13.setVisible(false);
+        type14 = new JLabel(correctImg, JLabel.CENTER);
+        type14.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type14.setLocation(360, 430);
+        type14.setVisible(false);
+        type15 = new JLabel(correctImg, JLabel.CENTER);
+        type15.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type15.setLocation(360, 480);
+        type15.setVisible(false);
+
+        type21 = new JLabel(correctImg, JLabel.CENTER);
+        type21.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type21.setLocation(420, 280);
+        type21.setVisible(false);
+        type22 = new JLabel(correctImg, JLabel.CENTER);
+        type22.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type22.setLocation(420, 330);
+        type22.setVisible(false);
+        type23 = new JLabel(correctImg, JLabel.CENTER);
+        type23.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type23.setLocation(420, 380);
+        type23.setVisible(false);
+        type24 = new JLabel(correctImg, JLabel.CENTER);
+        type24.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type24.setLocation(420, 430);
+        type24.setVisible(false);
+        type25 = new JLabel(correctImg, JLabel.CENTER);
+        type25.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        type25.setLocation(420, 480);
+        type25.setVisible(false);
+
+        evolution1 = new JLabel(correctImg, JLabel.CENTER);
+        evolution1.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        evolution1.setLocation(480, 280);
+        evolution1.setVisible(false);
+        evolution2 = new JLabel(correctImg, JLabel.CENTER);
+        evolution2.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        evolution2.setLocation(480, 330);
+        evolution2.setVisible(false);
+        evolution3 = new JLabel(correctImg, JLabel.CENTER);
+        evolution3.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        evolution3.setLocation(480, 380);
+        evolution3.setVisible(false);
+        evolution4 = new JLabel(correctImg, JLabel.CENTER);
+        evolution4.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        evolution4.setLocation(480, 430);
+        evolution4.setVisible(false);
+        evolution5 = new JLabel(correctImg, JLabel.CENTER);
+        evolution5.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        evolution5.setLocation(480, 480);
+        evolution5.setVisible(false);
 
         try {
             correctImg = new ImageIcon(ImageIO.read(new File("GuessPics/correct.png")));
@@ -312,10 +721,10 @@ public class Pokerdle {
             feedback = "Read in image error...";
             feedbackLabel.setText(feedback);
         }
-        corectPic.setIcon(correctImg);
-        wrongPic.setIcon(wrongImg);
-        upPic.setIcon(upImg);
-        downPic.setIcon(downImg);
+        // corectPic.setIcon(correctImg);
+        // wrongPic.setIcon(wrongImg);
+        // upPic.setIcon(upImg);
+        // downPic.setIcon(downImg);
 
 
 
@@ -326,21 +735,21 @@ public class Pokerdle {
         textField.setVisible(true);
         textField.setLocation(100, 600);
 
-        // // Correct Pic
+        // // // Correct Pic
         // corectPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        // corectPic.setLocation(300, 290);
+        // corectPic.setLocation(300, 230);
 
-        // // Wrong Pic
+        // // // Wrong Pic
         // wrongPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        // wrongPic.setLocation(360, 290);
+        // wrongPic.setLocation(360, 230);
 
-        // // Up pic
+        // // // Up pic
         // upPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        // upPic.setLocation(420, 290);
+        // upPic.setLocation(420, 230);
 
-        // // Down Pic
+        // // // Down Pic
         // downPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
-        // downPic.setLocation(480, 290);
+        // downPic.setLocation(480, 230);
     
     
         ActionListener al = new ActionListener(){
@@ -394,10 +803,35 @@ public class Pokerdle {
         contentPane.add(evol);
 
         // Adding guess img
-        contentPane.add(upPic);
-        contentPane.add(corectPic);
-        contentPane.add(wrongPic);
-        contentPane.add(downPic);
+        // contentPane.add(upPic);
+        // contentPane.add(corectPic);
+        // contentPane.add(wrongPic);
+        // contentPane.add(downPic);
+
+        contentPane.add(generation1);
+        contentPane.add(generation2);
+        contentPane.add(generation3);
+        contentPane.add(generation4);
+        contentPane.add(generation5);
+
+        contentPane.add(type11);
+        contentPane.add(type12);
+        contentPane.add(type13);
+        contentPane.add(type14);
+        contentPane.add(type15);
+
+        contentPane.add(type21);
+        contentPane.add(type22);
+        contentPane.add(type23);
+        contentPane.add(type24);
+        contentPane.add(type25);
+
+        contentPane.add(evolution1);
+        contentPane.add(evolution2);
+        contentPane.add(evolution3);
+        contentPane.add(evolution4);
+        contentPane.add(evolution5);
+
 
 
         frame.setContentPane(contentPane);
