@@ -1,24 +1,15 @@
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Graphics.*; 
-import java.awt.Toolkit;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -99,7 +90,6 @@ public class Pokerdle {
         
         int count = 0;
         String[] correctComp = {"equal", "true", "true", "equal"};
-        int y = 150;
         System.out.println(pokemonMap);
         System.out.println(randomPokemon);
         String guess ="__";
@@ -183,7 +173,6 @@ public class Pokerdle {
                     }
                 }
             }
-            int x = 250;
             for(String value : isItCorrect){
                 
                 if(value == "equal"){
@@ -536,11 +525,10 @@ public class Pokerdle {
                         evolution5.setVisible(true);
                     }
                 }
-                x += 100;
                 System.out.println(value);
 
             }
-            y += 100;
+
             if(Arrays.equals(isItCorrect, correctComp)){
                 System.out.println("You guessed the right pokemon!");
                 feedback = "You guessed the right pokemon!";
@@ -553,11 +541,12 @@ public class Pokerdle {
         }
         if (!won) {
             System.out.println("out of guesses");
-            feedback = ("Sorry! the correct pokemon is " + randomPokemon);
+            feedback = ("Sorry! The correct pokemon is " + randomPokemon);
             feedbackLabel.setText(feedback);
         } 
         pic.setIcon(img);
         pic.setVisible(true);
+        sc.close();
     }
  
 
