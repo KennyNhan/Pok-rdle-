@@ -27,7 +27,7 @@ import java.awt.event.ActionListener;
  */
 public class Pokerdle {
     JFrame frame;
-
+    final int GUESS_IMG_SIZE = 50;
     static Boolean won = false;
 
     static String feedback = "Welcome to pok-rdle";
@@ -43,6 +43,10 @@ public class Pokerdle {
     static JLabel label4 = new JLabel(guessLabelText , JLabel.CENTER);
     static JLabel label5 = new JLabel(guessLabelText , JLabel.CENTER);
     static JLabel label6 = new JLabel(guessLabelText , JLabel.CENTER);
+    static ImageIcon correctImg;
+    static ImageIcon wrongImg;
+    static ImageIcon upImg;
+    static ImageIcon downImg;
 
     Graphics g1;
 
@@ -167,7 +171,8 @@ public class Pokerdle {
                     int intValue = Integer.valueOf(tempGuess);
                     int correctInt = Integer.valueOf(tempCorrect);
                     if (intValue == correctInt){
-                        isItCorrect[i] = "equal";   
+                        isItCorrect[i] = "equal";
+                           
 
                     }
                     else if ( intValue < correctInt){
@@ -276,6 +281,25 @@ public class Pokerdle {
         pic.setSize(200, 200);
         pic.setLocation(85, 55);
 
+        JLabel corectPic = new JLabel(correctImg, JLabel.CENTER);
+        JLabel wrongPic = new JLabel(correctImg, JLabel.CENTER);
+        JLabel upPic = new JLabel(correctImg, JLabel.CENTER);
+        JLabel downPic = new JLabel(correctImg, JLabel.CENTER);
+
+        try {
+            correctImg = new ImageIcon(ImageIO.read(new File("GuessPics/correct.png")));
+            wrongImg = new ImageIcon(ImageIO.read(new File("GuessPics/wrong.png")));
+            upImg = new ImageIcon(ImageIO.read(new File("GuessPics/up.png")));
+            downImg = new ImageIcon(ImageIO.read(new File("GuessPics/down.png")));
+        } catch (IOException e) {
+            System.out.println("Read in image error...");
+            feedback = "Read in image error...";
+            feedbackLabel.setText(feedback);
+        }
+        corectPic.setIcon(correctImg);
+        wrongPic.setIcon(wrongImg);
+        upPic.setIcon(upImg);
+        downPic.setIcon(downImg);
 
 
 
@@ -285,7 +309,22 @@ public class Pokerdle {
         textField.setSize(300, 40);
         textField.setVisible(true);
         textField.setLocation(100, 600);
-    
+
+        // Correct Pic
+        corectPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        corectPic.setLocation(300, 290);
+
+        // Wrong Pic
+        wrongPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        wrongPic.setLocation(360, 290);
+
+        // Up pic
+        upPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        upPic.setLocation(420, 290);
+
+        // Down Pic
+        downPic.setSize(GUESS_IMG_SIZE, GUESS_IMG_SIZE);
+        downPic.setLocation(480, 290);
     
     
         ActionListener al = new ActionListener(){
@@ -334,6 +373,13 @@ public class Pokerdle {
         contentPane.add(textField);
         contentPane.add(pic);
 
+        // Adding guess img
+        contentPane.add(upPic);
+        contentPane.add(corectPic);
+        contentPane.add(wrongPic);
+        contentPane.add(downPic);
+
+
         frame.setContentPane(contentPane);
         frame.setSize(600, 800);
         frame.setLocationByPlatform(true);
@@ -345,6 +391,16 @@ public class Pokerdle {
     public static void meow() {
         img = new ImageIcon(new ImageIcon("PokePics/bayleef.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
     }
+
+
+    public void addGuessImage(JPanel jPanel, String[] isItCorrect) {
+        System.out.println(isItCorrect);
+        JLabel guess1 = new JLabel("This is a test");
+        guess1.setSize(100, 30);
+        guess1.setLocation(5, 650);
+        jPanel.add(guess1);
+    }
+
 
     public static void getPokePic() {
         if (randomPokemon == "bayleef") {
